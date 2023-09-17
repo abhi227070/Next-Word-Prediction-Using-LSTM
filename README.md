@@ -31,14 +31,14 @@ for sentence in data.split('\n'):
   for i in range(1,len(tokenized_sentence)):
     input_sequences.append(tokenized_sentence[:i+1])
 
-Padding Sequences
-The sequences are padded to ensure they all have the same length, making them suitable for model input.
+#Padding Sequences
+#The sequences are padded to ensure they all have the same length, making them suitable for model input.
 
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 padded_input_sequences = pad_sequences(input_sequences,maxlen = max_len,padding='pre')
 
-Model Building
-The core of this project is the LSTM-based neural network for word prediction. The model architecture includes an embedding layer, LSTM layer, and a dense output layer.
+#Model Building
+#The core of this project is the LSTM-based neural network for word prediction. The model architecture includes an embedding layer, LSTM layer, and a dense output layer.
 
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense, LSTM, Embedding
@@ -53,13 +53,13 @@ model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accur
 
 model.summary()
 
-Model Training
-The model is trained on the prepared input sequences and their corresponding one-hot encoded output sequences.
+#Model Training
+#The model is trained on the prepared input sequences and their corresponding one-hot encoded output sequences.
 
 model.fit(x, y, epochs=100)
 
-Text Prediction
-After training the model, you can use it to predict the next word in a given input text. Here's an example:
+#Text Prediction
+#After training the model, you can use it to predict the next word in a given input text. Here's an example:
 
 import numpy as np
 import time
@@ -80,12 +80,12 @@ for i in range(10):
       print(text)
       time.sleep(2)
 
-Saving the Model
-The trained model is saved for future use.
+#Saving the Model
+#The trained model is saved for future use.
 
 model.save('trained_model.h5')
 
 
 
-Make sure to replace any placeholders in the code and README with actual information specific to your project.
+#Make sure to replace any placeholders in the code and README with actual information specific to your project.
 
